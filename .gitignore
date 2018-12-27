@@ -54,3 +54,4 @@ dkms.conf
 #python
 *.pyc
 *.tmp
+.DS_Store
