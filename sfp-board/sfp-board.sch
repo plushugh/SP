@@ -4515,7 +4515,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="S2" library="gp2y1010au" deviceset="GP2Y1010AU" device=""/>
 <part name="WEMOS2" library="esp8266modules" deviceset="WEMOS-D1-MINI" device=""/>
 <part name="R1" library="rcl" deviceset="R-US_" device="0411/15" value="100k"/>
-<part name="R2" library="opto-resistor" deviceset="OPTO_RES" device=""/>
+<part name="R2" library="opto-resistor" deviceset="OPTO_RES" device="" value="Photoresistor"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -4529,7 +4529,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
 <part name="R3" library="rcl" deviceset="R-US_" device="0411/15" value="150ohm"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
-<part name="C1" library="digital-toy" deviceset="CAP" device="PTH1"/>
+<part name="C1" library="digital-toy" deviceset="CAP" device="PTH1" value="capacitor"/>
 </parts>
 <sheets>
 <sheet>
@@ -4599,7 +4599,7 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </instance>
 <instance part="C1" gate="G$1" x="-15.24" y="40.64" smashed="yes">
 <attribute name="NAME" x="-17.653" y="39.116" size="1.27" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-11.811" y="38.862" size="1.27" layer="96" rot="R90"/>
+<attribute name="VALUE" x="-11.811" y="41.402" size="1.27" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -4723,6 +4723,15 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="104,1,50.8,33.02,S1,VDD,VCC,,,"/>
+<approved hash="104,1,-22.86,43.18,S2,V-LED,N$4,,,"/>
+<approved hash="104,1,-22.86,38.1,S2,LED-GND,GND,,,"/>
+<approved hash="104,1,-22.86,27.94,S2,S-GND,GND,,,"/>
+<approved hash="113,1,13.97,34.2176,WEMOS1,,,,,"/>
+<approved hash="113,1,-34.1185,30.48,S2,,,,,"/>
+<approved hash="113,1,3.81,88.8276,WEMOS2,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>
