@@ -55,3 +55,6 @@ dkms.conf
 *.pyc
 *.tmp
 .DS_Store
+*.b#*
+*.s#*
+
