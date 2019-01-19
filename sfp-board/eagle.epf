@@ -359,11 +359,11 @@ UsedLibrary="opto-resistor.lbr"
 
 [Win_1]
 Type="Board Editor"
-Loc="597 279 1913 1090"
+Loc="366 134 2285 1150"
 State=2
 Number=1
 File="sfp-board.brd"
-View="-23.0024 -23.9264 128.365 95.8816"
+View="-100.231 -116.669 161.332 90.3598"
 WireWidths=" 0 0.254 0.3048 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.4064"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
@@ -401,11 +401,11 @@ SwapLevel=0
 ArcDirection=0
 AddLevel=2
 PadsSameType=0
-Layer=16
+Layer=1
 
 [Win_2]
 Type="Schematic Editor"
-Loc="357 111 1610 1027"
+Loc="583 113 1836 1029"
 State=2
 Number=4
 File="sfp-board.sch"
@@ -453,7 +453,7 @@ Sheet="1"
 
 [Win_3]
 Type="Control Panel"
-Loc="219 191 818 590"
+Loc="219 197 818 590"
 State=2
 Number=0
 
