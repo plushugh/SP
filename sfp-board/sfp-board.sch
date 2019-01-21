@@ -5917,7 +5917,7 @@ Source: http://www.osram.convergy.de/</description>
 <parts>
 <part name="S1" library="diy-modules" deviceset="TEMP-HUM-SENSOR-DHT11" device="" value="DHT11"/>
 <part name="WEMOS1" library="esp8266modules" deviceset="WEMOS-D1-MINI" device=""/>
-<part name="S2" library="gp2y1010au" deviceset="GP2Y1010AU" device=""/>
+<part name="GP2Y1010AU0F" library="gp2y1010au" deviceset="GP2Y1010AU" device=""/>
 <part name="WEMOS2" library="esp8266modules" deviceset="WEMOS-D1-MINI" device=""/>
 <part name="R1" library="rcl" deviceset="R-US_" device="0411/15" value="100k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
@@ -5963,7 +5963,7 @@ Source: http://www.osram.convergy.de/</description>
 <attribute name="NAME" x="2.54" y="45.72" size="1.778" layer="95"/>
 <attribute name="VALUE" x="5.08" y="17.78" size="1.778" layer="96"/>
 </instance>
-<instance part="S2" gate="G$1" x="-7.62" y="25.4" smashed="yes"/>
+<instance part="GP2Y1010AU0F" gate="G$1" x="-7.62" y="25.4" smashed="yes"/>
 <instance part="WEMOS2" gate="D1" x="2.54" y="86.36" smashed="yes">
 <attribute name="NAME" x="-7.62" y="101.6" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-5.08" y="71.12" size="1.778" layer="96"/>
@@ -6087,7 +6087,7 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="50.8" y1="45.72" x2="50.8" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="LED-GND"/>
+<pinref part="GP2Y1010AU0F" gate="G$1" pin="LED-GND"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="-15.24" y1="38.1" x2="-22.86" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="2"/>
@@ -6100,7 +6100,7 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="33.02" y1="27.94" x2="30.48" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="S-GND"/>
+<pinref part="GP2Y1010AU0F" gate="G$1" pin="S-GND"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="-15.24" y1="27.94" x2="-22.86" y2="27.94" width="0.1524" layer="91"/>
 </segment>
@@ -6137,7 +6137,7 @@ Source: http://www.osram.convergy.de/</description>
 <pinref part="WEMOS2" gate="D1" pin="5V"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="VCC"/>
+<pinref part="GP2Y1010AU0F" gate="G$1" pin="VCC"/>
 <pinref part="P+3" gate="VCC" pin="VCC"/>
 <wire x1="-12.7" y1="17.78" x2="-22.86" y2="17.78" width="0.1524" layer="91"/>
 </segment>
@@ -6162,7 +6162,7 @@ Source: http://www.osram.convergy.de/</description>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="S2" gate="G$1" pin="VOUT"/>
+<pinref part="GP2Y1010AU0F" gate="G$1" pin="VOUT"/>
 <wire x1="-22.86" y1="22.86" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="-7.62" y1="22.86" x2="-7.62" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="WEMOS1" gate="D1" pin="A0"/>
@@ -6171,7 +6171,7 @@ Source: http://www.osram.convergy.de/</description>
 </net>
 <net name="N$3" class="0">
 <segment>
-<pinref part="S2" gate="G$1" pin="LED"/>
+<pinref part="GP2Y1010AU0F" gate="G$1" pin="LED"/>
 <wire x1="-22.86" y1="33.02" x2="-5.08" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="33.02" x2="-5.08" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="WEMOS1" gate="D1" pin="D0"/>
@@ -6180,7 +6180,7 @@ Source: http://www.osram.convergy.de/</description>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="S2" gate="G$1" pin="V-LED"/>
+<pinref part="GP2Y1010AU0F" gate="G$1" pin="V-LED"/>
 <wire x1="-22.86" y1="43.18" x2="-20.32" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="-20.32" y1="43.18" x2="-20.32" y2="45.72" width="0.1524" layer="91"/>
