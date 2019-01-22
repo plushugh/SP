@@ -5949,6 +5949,10 @@ Source: http://www.osram.convergy.de/</description>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
+<part name="R7" library="rcl" deviceset="R-US_" device="0411/15" value="10k"/>
+<part name="R9" library="rcl" deviceset="R-US_" device="0411/15" value="10k"/>
+<part name="P+8" library="supply1" deviceset="VCC" device=""/>
+<part name="GND10" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5999,8 +6003,8 @@ Source: http://www.osram.convergy.de/</description>
 <instance part="P+3" gate="VCC" x="-10.16" y="17.78" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-12.7" y="20.32" size="1.778" layer="96"/>
 </instance>
-<instance part="P+4" gate="VCC" x="33.02" y="25.4" smashed="yes" rot="R270">
-<attribute name="VALUE" x="30.48" y="27.94" size="1.778" layer="96"/>
+<instance part="P+4" gate="VCC" x="35.56" y="25.4" smashed="yes" rot="R270">
+<attribute name="VALUE" x="30.48" y="22.86" size="1.778" layer="96"/>
 </instance>
 <instance part="P+5" gate="VCC" x="45.72" y="33.02" smashed="yes" rot="R90">
 <attribute name="VALUE" x="48.26" y="30.48" size="1.778" layer="96" rot="R180"/>
@@ -6059,6 +6063,20 @@ Source: http://www.osram.convergy.de/</description>
 </instance>
 <instance part="GND9" gate="1" x="17.78" y="68.58" smashed="yes" rot="R90">
 <attribute name="VALUE" x="20.32" y="66.04" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R7" gate="G$1" x="53.34" y="7.62" smashed="yes" rot="R180">
+<attribute name="NAME" x="52.07" y="6.1214" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="54.61" y="10.922" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="R9" gate="G$1" x="35.56" y="88.9" smashed="yes" rot="MR180">
+<attribute name="NAME" x="34.0614" y="85.09" size="1.778" layer="95"/>
+<attribute name="VALUE" x="33.782" y="95.25" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="P+8" gate="VCC" x="60.96" y="7.62" smashed="yes" rot="R270">
+<attribute name="VALUE" x="58.42" y="10.16" size="1.778" layer="96"/>
+</instance>
+<instance part="GND10" gate="1" x="45.72" y="88.9" smashed="yes" rot="R90">
+<attribute name="VALUE" x="48.26" y="86.36" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -6124,6 +6142,11 @@ Source: http://www.osram.convergy.de/</description>
 <pinref part="GND9" gate="1" pin="GND"/>
 <wire x1="15.24" y1="68.58" x2="12.7" y2="68.58" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+<wire x1="43.18" y1="88.9" x2="40.64" y2="88.9" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -6144,6 +6167,7 @@ Source: http://www.osram.convergy.de/</description>
 <segment>
 <pinref part="WEMOS1" gate="D1" pin="5V"/>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
+<wire x1="33.02" y1="25.4" x2="30.48" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="S1" gate="G$1" pin="VDD"/>
@@ -6158,6 +6182,10 @@ Source: http://www.osram.convergy.de/</description>
 <pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="P+7" gate="VCC" pin="VCC"/>
 <wire x1="-45.72" y1="114.3" x2="-45.72" y2="111.76" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="P+8" gate="VCC" pin="VCC"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -6236,6 +6264,24 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="-15.24" y1="81.28" x2="-15.24" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="-15.24" y1="68.58" x2="-7.62" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="WEMOS2" gate="D1" pin="D2"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="30.48" y1="88.9" x2="20.32" y2="88.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="WEMOS1" gate="D1" pin="D2"/>
+<wire x1="30.48" y1="35.56" x2="33.02" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="35.56" x2="33.02" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="33.02" x2="43.18" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="33.02" x2="43.18" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="43.18" y1="7.62" x2="48.26" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
