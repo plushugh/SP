@@ -26,3 +26,10 @@ delay(1000);
 
    float voltage = float(dustVal/1023)*3.3;
 
+   voltage = (voltage/3)*5.8;
+
+   float mg =0.17*voltage-0.1;
+
+   Serial.println(mg);
+  
+}
