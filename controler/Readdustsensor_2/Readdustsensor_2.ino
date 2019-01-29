@@ -1,115 +1,45 @@
-/*********************************************************************************************************
-*
-* File                : DustSensor
-* Hardware Environment: 
-* Build Environment   : Arduino
-* Version             : V1.0.5-r2
-* By                  : WaveShare
-*
-*                                  (c) Copyright 2005-2011, WaveShare
-*                                       http://www.waveshare.net
-*                                       http://www.waveshare.com   
-*                                          All Rights Reserved
-*
-*********************************************************************************************************/
-#define        COV_RATIO                       0.2            //ug/mmm / mv
-#define        NO_DUST_VOLTAGE                 400            //mv
-#define        SYS_VOLTAGE                     5000           
+int measurePin = A0;
+int ledPower = D0;
 
+unsigned int samplingTime = 280;
+unsigned int deltaTime = 40;
+unsigned int sleepTime = 9680;
 
-/*
-I/O define
-*/
-const int iled = D0;                                            //drive the led of sensor
-const int vout = A0;                                            //analog input
+float voMeasured = 0;
+float calcVoltage = 0;
+float dustDensity = 0;
 
-/*
-variable
-*/
-float density, voltage;
-int   adcvalue;
-
-/*
-private function
-*/
-int Filter(int m)
-{
-  static int flag_first = 0, _buff[10], sum;
-  const int _buff_max = 10;
-  int i;
-  
-  if(flag_first == 0)
-  {
-    flag_first = 1;
-
-    for(i = 0, sum = 0; i < _buff_max; i++)
-    {
-      _buff[i] = m;
-      sum += _buff[i];
-    }
-    return m;
-  }
-  else
-  {
-    sum -= _buff[0];
-    for(i = 0; i < (_buff_max - 1); i++)
-    {
-      _buff[i] = _buff[i + 1];
-    }
-    _buff[9] = m;
-    sum += _buff[9];
-    
-    i = sum / 10.0;
-    return i;
-  }
+void setup(){
+  Serial.begin(9600);
+  pinMode(ledPower,OUTPUT);
 }
 
+void loop(){
+  digitalWrite(ledPower,LOW);
+  delayMicroseconds(samplingTime);
 
-void setup(void)
-{
-  pinMode(iled, OUTPUT);
-  digitalWrite(iled, LOW);                                     //iled default closed
-  
-  Serial.begin(9600);                                         //send and receive at 9600 baud
-  
-}
+  voMeasured = analogRead(measurePin);
 
-void loop(void)
-{
-  /*
-  get adcvalue
-  */
-  digitalWrite(iled, HIGH);
-  delayMicroseconds(280);
-  adcvalue = analogRead(vout);
-  digitalWrite(iled, LOW);
-  
- // adcvalue = Filter(adcvalue);
-  
-  /*
-  covert voltage (mv)
-  */
-  voltage = (SYS_VOLTAGE / 1024.0) * adcvalue * 11;
-  
-  /*
-  voltage to density
-  */
-  if(voltage >= NO_DUST_VOLTAGE)
+  delayMicroseconds(deltaTime);
+  digitalWrite(ledPower,HIGH);
+  delayMicroseconds(sleepTime);
+
+  calcVoltage = voMeasured*(5.0/1024);
+  dustDensity = 0.17*calcVoltage-0.1;
+
+  if ( dustDensity < 0)
   {
-    voltage -= NO_DUST_VOLTAGE;
-    
-    density = voltage * COV_RATIO;
+    dustDensity = 0.00;
   }
-  else
-    density = 0;
-    
-  /*
-  display the result
-  */
 
-   Serial.print("RAW Analog: "+String(adcvalue)+" miliVOLT: "+String(voltage)+" DUST ug/m3: "+String(density)+"\n");
+  Serial.print("Raw Signal Value (0-1023):");
+  Serial.print(voMeasured);
 
- 
-  
+  Serial.print("Voltage:");
+  Serial.print(calcVoltage);
+
+  Serial.print("Dust Density:");
+  Serial.print(dustDensity);
+  Serial.println("/n");
   delay(1000);
 }
