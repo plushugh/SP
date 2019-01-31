@@ -7,9 +7,9 @@ Science Projects
 * code-name: controler
 
 ##Versioning
-*1.0.0-xxxx
-*First digit: main version
-*Secone digit: Code version
-*Third digit: PCB version
-*-xxxx part: Pre-release Tag
+* 1.0.0-xxxx
+* First digit: main version
+* Secone digit: Code version
+* Third digit: PCB version
+* -xxxx part: Pre-release Tag
 
