@@ -5,9 +5,7 @@ unsigned int samplingTime = 280;
 unsigned int deltaTime = 40;
 unsigned int sleepTime = 9680;
 
-float voMeasured = 0;
-float calcVoltage = 0;
-float dustDensity = 0;
+int sensorValue = 0;
 
 void setup(){
   Serial.begin(9600);
@@ -17,29 +15,17 @@ void setup(){
 void loop(){
   digitalWrite(ledPower,LOW);
   delayMicroseconds(samplingTime);
-
-  voMeasured = analogRead(measurePin);
-
+  sensorValue = analogRead(measurePin);
   delayMicroseconds(deltaTime);
   digitalWrite(ledPower,HIGH);
   delayMicroseconds(sleepTime);
-
-  calcVoltage = voMeasured*(5.0/1024);
-  dustDensity = 0.17*calcVoltage-0.1;
-
-  if ( dustDensity < 0)
-  {
-    dustDensity = 0.00;
-  }
-
-  Serial.print("Raw Signal Value (0-1023):");
-  Serial.print(voMeasured);
-
-  Serial.print("Voltage:");
-  Serial.print(calcVoltage);
-
-  Serial.print("Dust Density:");
-  Serial.print(dustDensity);
-  Serial.println("/n");
-  delay(1000);
+    
+  
+  
+  float voltage = sensorValue * (3.2 / 1023.0);
+  float density = (voltage-0.01)/0.5;
+  //Serial.println(sensorValue);
+  //Serial.println(voltage);
+  Serial.println(density*0.1*1000);
+  delay(500);
 }

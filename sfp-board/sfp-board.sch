@@ -12482,7 +12482,7 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <part name="P+8" library="supply1" deviceset="VCC" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="U$1" library="digital-toy" deviceset="BRS-SYMBOL" device=""/>
-<part name="JP1" library="SparkFun" deviceset="M02" device="PTH3"/>
+<part name="JP1" library="SparkFun" deviceset="M02" device="PTH3" value="POWER"/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="C1" library="SparkFun" deviceset="CAP_POL" device="PTH1" value="220uF"/>
