@@ -12522,8 +12522,8 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <instance part="GND3" gate="1" x="50.8" y="48.26" smashed="yes" rot="R180">
 <attribute name="VALUE" x="53.34" y="50.8" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND4" gate="1" x="-12.7" y="48.26" smashed="yes" rot="R90">
-<attribute name="VALUE" x="-10.16" y="45.72" size="1.778" layer="96" rot="R90"/>
+<instance part="GND4" gate="1" x="-10.16" y="50.8" smashed="yes" rot="R90">
+<attribute name="VALUE" x="-7.62" y="48.26" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="GND5" gate="1" x="25.4" y="81.28" smashed="yes" rot="R90">
 <attribute name="VALUE" x="27.94" y="78.74" size="1.778" layer="96" rot="R90"/>
@@ -12623,8 +12623,8 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <instance part="P+3" gate="VCC" x="-15.24" y="17.78" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-20.32" y="15.24" size="1.778" layer="96"/>
 </instance>
-<instance part="P+6" gate="VCC" x="-5.08" y="43.18" smashed="yes" rot="R270">
-<attribute name="VALUE" x="-10.16" y="40.64" size="1.778" layer="96"/>
+<instance part="P+6" gate="VCC" x="-7.62" y="43.18" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-10.16" y="45.72" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -12655,6 +12655,7 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
 <pinref part="C1" gate="G$1" pin="-"/>
+<wire x1="-12.7" y1="50.8" x2="-15.24" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="WEMOS1" gate="D1" pin="GND"/>
@@ -12745,7 +12746,7 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="P+6" gate="VCC" pin="VCC"/>
-<wire x1="-7.62" y1="43.18" x2="-12.7" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="43.18" x2="-12.7" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -12823,13 +12824,6 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <wire x1="43.18" y1="7.62" x2="48.26" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="GP2Y1010AU0F" gate="G$1" pin="VOUT"/>
-<wire x1="-22.86" y1="22.86" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="40.64" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$1" class="0">
 <segment>
 <pinref part="C1" gate="G$1" pin="+"/>
@@ -12841,10 +12835,11 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 </net>
 <net name="N$4" class="0">
 <segment>
+<pinref part="GP2Y1010AU0F" gate="G$1" pin="VOUT"/>
+<wire x1="-22.86" y1="22.86" x2="-7.62" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="22.86" x2="-7.62" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="WEMOS1" gate="D1" pin="A0"/>
-<wire x1="-2.54" y1="40.64" x2="-5.08" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-5.08" y1="40.64" x2="-5.842" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-5.842" y1="40.64" x2="-7.62" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="38.1" x2="-2.54" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -12852,11 +12847,7 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 </sheets>
 <errors>
 <approved hash="104,1,50.8,33.02,S1,VDD,VCC,,,"/>
-<approved hash="104,1,-22.86,43.18,S2,V-LED,N$4,,,"/>
-<approved hash="104,1,-22.86,38.1,S2,LED-GND,GND,,,"/>
-<approved hash="104,1,-22.86,27.94,S2,S-GND,GND,,,"/>
 <approved hash="113,1,13.97,34.1418,WEMOS1,,,,,"/>
-<approved hash="113,1,-34.0995,30.48,S2,,,,,"/>
 <approved hash="113,1,3.81,88.7518,WEMOS2,,,,,"/>
 </errors>
 </schematic>

@@ -359,7 +359,7 @@ UsedLibrary="opto-resistor.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="0 3 1019 696"
+Loc="347 304 1366 997"
 State=2
 Number=0
 
