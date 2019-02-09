@@ -1,35 +1,51 @@
-// www.arduinesp.com 
-// can be used NodeMcu or WeMos D1 - http://www.wemos.cc/wiki/doku.php?id=en%3Ad1
-// Plot DTH11 data on thingspeak.com using an ESP8266 
-// April 11 2015
-// Author: Jeroen Beemster
-// Website: www.arduinesp.com
-// changed for DHT22 (AM2302), then use random value instead real value sensor by niq_ro (Nicu FLORICA)
-// from http://nicuflorica.blogspot.ro 
- 
 #include <ESP8266WiFi.h>
- 
+#include "DHT.h"
+
+#define DHTPIN D0     // what pin we're connected to
+
+#define DHTTYPE DHT12   // DHT 11
+
 // replace with your channel's thingspeak API key, 
-String apiKey = "YQQALXB4VXS3V3Z5";
-const char* ssid = "Plus-2.4";
-const char* password = "love771221";
+String apiKey = "APIkey";
+const char* ssid = "ssid";
+const char* password = "passwd";
 const char* server = "api.thingspeak.com";
 
 WiFiClient client;
-   
+
+int light = 0;   
+
 const int photoresistor = A0; // Photoresistor at Arduino analog pin A0
-int light = 0;
+const int defineboard = D2;
+const int statusled = D8;
+const int measurePin = A0;
+const int ledPower = D0;
+bool board;
+unsigned int samplingTime = 280;
+unsigned int deltaTime = 40;
+unsigned int sleepTime = 9680;
+
+int sensorValue = 0;
+
+DHT dht(DHTPIN, DHTTYPE);
 void setup() {                
+  if (digitalRead(defineboard) == 1){
+    board = true;
+  }else{
+    board = false;
+  }
   Serial.begin(115200);
   delay(10);
-  
+  pinMode(ledPower,OUTPUT);
+  pinMode(defineboard,INPUT);
+  pinMode(statusled,OUTPUT);
   WiFi.begin(ssid, password);
- 
+  dht.begin();
   Serial.println();
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-   
+  digitalWrite(statusled,LOW);
   WiFi.begin(ssid, password);
    
   while (WiFi.status() != WL_CONNECTED) {
@@ -38,22 +54,94 @@ void setup() {
   }
   Serial.println("");
   Serial.println("WiFi connected");
+  digitalWrite(statusled,HIGH);
   
 }
  
  
 void loop() {
+  if (board == true){
+    int hum = readhum ();
+    int temp = readtemp ();
+    int dust = readdust ();
+    postdata1 (dust,temp,hum);
+    delay(2000);
+  }else{
+    int light = readlight ();
+    postdata2 (light);
+    delay(2000);
+  }
+  
+  }
+int readhum () {
+  float h = dht.readHumidity();
+  return h ;
+}
+int readtemp () {
+  float t = dht.readTemperature();
+  return t;
+}
+
+int readdust () {
+    digitalWrite(ledPower,LOW);
+  delayMicroseconds(samplingTime);
+  sensorValue = analogRead(measurePin);
+  delayMicroseconds(deltaTime);
+  digitalWrite(ledPower,HIGH);
+  delayMicroseconds(sleepTime);
+    
+  
+  
+  float voltage = sensorValue * (3.2 / 1023.0);
+  float density = ((voltage-0.01)/0.5)*0.1*1000;
+
+  Serial.println(density);
+  
+  delay(500);
+  return density;
+  
+}
+  
+int readlight () {
   int lightval = analogRead(photoresistor);
   if (lightval >40) {
     light = 1;
     }else{
       light =0;
       }
-  postdata (light);
- 
-  }
+  return light;
+}
 
-void postdata (int light) {
+void postdata1 (int dust,int temp,int hum) {
+    if (client.connect(server,80)) {  //   "184.106.153.149" or api.thingspeak.com
+    String postStr = apiKey;
+           postStr +="&field2=";
+           postStr += String(temp);
+           postStr +="&field3=";
+           postStr += String(hum);
+           postStr +="&field4=";
+           postStr += String(dust);
+           postStr += "\r\n\r\n";
+ 
+     client.print("POST /update HTTP/1.1\n"); 
+     client.print("Host: api.thingspeak.com\n"); 
+     client.print("Connection: close\n"); 
+     client.print("X-THINGSPEAKAPIKEY: "+apiKey+"\n"); 
+     client.print("Content-Type: application/x-www-form-urlencoded\n"); 
+     client.print("Content-Length: "); 
+     client.print(postStr.length()); 
+     client.print("\n\n"); 
+     client.print(postStr);
+    }
+  
+  client.stop();
+   
+  Serial.println("Waiting...");    
+  // thingspeak needs minimum 15 sec delay between updates
+  delay(30000);  
+}
+
+void postdata2 (int light) {
     if (client.connect(server,80)) {  //   "184.106.153.149" or api.thingspeak.com
     String postStr = apiKey;
            postStr +="&field1=";
