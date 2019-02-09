@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -78,8 +78,6 @@
 <pad name="4" x="-20.32" y="5.08" drill="1.1" shape="long" rot="R90"/>
 <pad name="5" x="-17.78" y="5.08" drill="1.1" shape="long" rot="R90"/>
 <pad name="6" x="-15.24" y="5.08" drill="1.1" shape="long" rot="R90"/>
-<text x="-27.94" y="10.16" size="1.27" layer="25">&gt;NAMES</text>
-<text x="-33.02" y="0" size="1.27" layer="27">&gt;VALUES</text>
 <wire x1="-30.48" y1="7.62" x2="-12.7" y2="7.62" width="0.254" layer="21"/>
 <wire x1="-12.7" y1="7.62" x2="-12.7" y2="2.54" width="0.254" layer="21"/>
 <wire x1="-12.7" y1="2.54" x2="-30.48" y2="2.54" width="0.254" layer="21"/>
@@ -93,6 +91,7 @@
 <wire x1="-30.6891" y1="14.041146875" x2="-30.6891" y2="48.331146875" width="0.6096" layer="21"/>
 <hole x="-6.54475" y="31.39840625" drill="15"/>
 <circle x="-6.51395" y="31.424546875" radius="7.5" width="0.6096" layer="46"/>
+<text x="-26.67" y="16.51" size="1.27" layer="21">GP2Y1010AU0F</text>
 </package>
 </packages>
 <symbols>
@@ -107,8 +106,7 @@
 <pin name="S-GND" x="-15.24" y="2.54" length="middle" direction="pwr" rot="R180"/>
 <pin name="VOUT" x="-15.24" y="-2.54" length="middle" direction="out" rot="R180"/>
 <pin name="VCC" x="-15.24" y="-7.62" length="middle" direction="pwr" rot="R180"/>
-<text x="-45.72" y="10.16" size="1.778" layer="95">&gt;NAMES</text>
-<text x="-45.72" y="2.54" size="1.778" layer="96">&gt;VALUES</text>
+<text x="-50.8" y="15.24" size="1.778" layer="94">GP2Y1010AU0F</text>
 </symbol>
 </symbols>
 <devicesets>

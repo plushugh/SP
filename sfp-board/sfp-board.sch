@@ -12847,7 +12847,11 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 </sheets>
 <errors>
 <approved hash="104,1,50.8,33.02,S1,VDD,VCC,,,"/>
+<approved hash="104,1,-22.86,43.18,GP2Y1010AU0F,V-LED,N$1,,,"/>
+<approved hash="104,1,-22.86,38.1,GP2Y1010AU0F,LED-GND,GND,,,"/>
+<approved hash="104,1,-22.86,27.94,GP2Y1010AU0F,S-GND,GND,,,"/>
 <approved hash="113,1,13.97,34.1418,WEMOS1,,,,,"/>
+<approved hash="113,1,-34.0995,30.48,GP2Y1010AU0F,,,,,"/>
 <approved hash="113,1,3.81,88.7518,WEMOS2,,,,,"/>
 </errors>
 </schematic>
