@@ -358,8 +358,14 @@ UsedLibrary="gp2y1010au.lbr"
 UsedLibrary="opto-resistor.lbr"
 
 [Win_1]
+Type="Control Panel"
+Loc="512 470 1531 1163"
+State=0
+Number=0
+
+[Win_2]
 Type="Schematic Editor"
-Loc="694 127 2613 1143"
+Loc="-202 467 632 765"
 State=0
 Number=2
 File="sfp-board.sch"
@@ -404,12 +410,6 @@ PadsSameType=0
 Layer=91
 Views=" 1: -66.5276 -10.388 109.987 137.19"
 Sheet="1"
-
-[Win_2]
-Type="Control Panel"
-Loc="859 212 1878 905"
-State=2
-Number=0
 
 [Desktop]
 Screen="1920 1080"
