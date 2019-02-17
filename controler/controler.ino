@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 #include "DHT.h"
 
-#define DHTPIN D0     // what pin we're connected to
+#define DHTPIN D1     // what pin we're connected to
 
 #define DHTTYPE DHT12   // DHT 11
 
