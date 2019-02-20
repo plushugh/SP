@@ -7,8 +7,8 @@
 
 // replace with your channel's thingspeak API key, 
 String apiKey = "APIkey";
-const char* ssid = "ssid";
-const char* password = "passwd";
+const char* ssid = "Plus-2.4";
+const char* password = "love771221";
 const char* server = "api.thingspeak.com";
 
 WiFiClient client;
@@ -45,7 +45,7 @@ void setup() {
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-  digitalWrite(statusled,LOW);
+  digitalWrite(statusled,HIGH);
   WiFi.begin(ssid, password);
    
   while (WiFi.status() != WL_CONNECTED) {
@@ -54,8 +54,18 @@ void setup() {
   }
   Serial.println("");
   Serial.println("WiFi connected");
+  digitalWrite(statusled,LOW);
+  delay(750);
   digitalWrite(statusled,HIGH);
-  
+  delay(750);
+  digitalWrite(statusled,LOW);
+  delay(750);
+  digitalWrite(statusled,HIGH);
+  delay(750);
+  digitalWrite(statusled,LOW);
+  delay(750);
+  digitalWrite(statusled,HIGH);
+  delay(750);
 }
  
  
@@ -73,6 +83,8 @@ void loop() {
   }
   
   }
+
+  
 int readhum () {
   float h = dht.readHumidity();
   return h ;
