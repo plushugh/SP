@@ -116,7 +116,7 @@ int readdust () {
   
 int readlight () {
   int lightval = analogRead(photoresistor);
-  if (lightval >40) {
+  if (lightval < 200) {
     light = 1;
     }else{
       light =0;

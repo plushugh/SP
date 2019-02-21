@@ -2,7 +2,7 @@
 
 #include "DHT.h"
 
-#define DHTPIN D4     // what pin we're connected to
+#define DHTPIN D1     // what pin we're connected to
 
 #define DHTTYPE DHT12   // DHT 11
 
@@ -33,15 +33,16 @@ void loop() {
   float f = dht.readTemperature(true);
 
   // Check if any reads failed and exit early (to try again).
-  if (isnan(h) || isnan(t) || isnan(f)) {
+  if (isnan(h) || isnan(t)) {
     Serial.println("Impossible to read data from DHT11!");
     return;
   }
 
   Serial.print("Humidity: ");
   Serial.print(h);
-  Serial.print(" % ");
+  Serial.println(" % ");
   Serial.print("Temperature: ");
   Serial.print(t);
-  Serial.print(" *C ");
+  Serial.println(" *C ");
+  Serial.println("");
 }
