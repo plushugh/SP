@@ -6,7 +6,7 @@
 #define DHTTYPE DHT12   // DHT 11
 
 // replace with your channel's thingspeak API key, 
-String apiKey = "APIkey";
+String apiKey = "0G9B67AVTZ4WS5BJ";
 const char* ssid = "Plus-2.4";
 const char* password = "love771221";
 const char* server = "api.thingspeak.com";
@@ -26,6 +26,8 @@ unsigned int deltaTime = 40;
 unsigned int sleepTime = 9680;
 
 int sensorValue = 0;
+
+void postdata2 (int light);
 
 DHT dht(DHTPIN, DHTTYPE);
 void setup() {                
@@ -116,12 +118,7 @@ int readdust () {
   
 int readlight () {
   int lightval = analogRead(photoresistor);
-  if (lightval < 200) {
-    light = 1;
-    }else{
-      light =0;
-      }
-  return light;
+  return lightval;
 }
 
 void postdata1 (int dust,int temp,int hum) {
@@ -134,7 +131,7 @@ void postdata1 (int dust,int temp,int hum) {
            postStr +="&field4=";
            postStr += String(dust);
            postStr += "\r\n\r\n";
- 
+     digitalWrite(statusled,LOW);
      client.print("POST /update HTTP/1.1\n"); 
      client.print("Host: api.thingspeak.com\n"); 
      client.print("Connection: close\n"); 
@@ -145,12 +142,13 @@ void postdata1 (int dust,int temp,int hum) {
      client.print("\n\n"); 
      client.print(postStr);
     }
-  
+    delay(500);
+  digitalWrite(statusled,HIGH);
   client.stop();
    
   Serial.println("Waiting...");    
   // thingspeak needs minimum 15 sec delay between updates
-  delay(30000);  
+  delay(17000);  
 }
 
 void postdata2 (int light) {
@@ -159,7 +157,8 @@ void postdata2 (int light) {
            postStr +="&field1=";
            postStr += String(light);
            postStr += "\r\n\r\n";
- 
+           
+     digitalWrite(statusled,LOW);
      client.print("POST /update HTTP/1.1\n"); 
      client.print("Host: api.thingspeak.com\n"); 
      client.print("Connection: close\n"); 
@@ -170,10 +169,11 @@ void postdata2 (int light) {
      client.print("\n\n"); 
      client.print(postStr);
     }
-  
+  delay(500);
+  digitalWrite(statusled,HIGH);
   client.stop();
    
   Serial.println("Waiting...");    
   // thingspeak needs minimum 15 sec delay between updates
-  delay(30000);  
+  delay(16000);  
 }
