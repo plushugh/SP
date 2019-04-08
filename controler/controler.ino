@@ -8,7 +8,7 @@
 // replace with your channel's thingspeak API key, 
 String apiKey = "APIkey";
 const char* ssid = "SSID";
-const char* password = "passwd";
+const char* password = "sciencefairpasswd";
 const char* server = "api.thingspeak.com";
 
 WiFiClient client;
