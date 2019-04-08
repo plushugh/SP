@@ -148,7 +148,7 @@ void postdata1 (int dust,int temp,int hum) {
    
   Serial.println("Waiting...");    
   // thingspeak needs minimum 15 sec delay between updates
-  delay(17000);  
+  delay(16000);  
 }
 
 void postdata2 (int light) {
