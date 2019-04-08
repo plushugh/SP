@@ -6,9 +6,9 @@
 #define DHTTYPE DHT12   // DHT 11
 
 // replace with your channel's thingspeak API key, 
-String apiKey = "0G9B67AVTZ4WS5BJ";
-const char* ssid = "Plus-2.4";
-const char* password = "love771221";
+String apiKey = "APIkey";
+const char* ssid = "SSID";
+const char* password = "sciencefairpasswd";
 const char* server = "api.thingspeak.com";
 
 WiFiClient client;
