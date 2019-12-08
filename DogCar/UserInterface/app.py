@@ -7,7 +7,7 @@ class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
         self.setupUi(self)
 
 def fwd():
-    print("Foward")
+    print("Forward")
 def bak():
     print("Backward")
 def left():
@@ -17,7 +17,7 @@ def right():
 def main():
     app = qtw.QApplication([])
     window = Form()
-    window.fowardButton.clicked.connect(fwd)
+    window.forwardButton.clicked.connect(fwd)
     window.backwardButton.clicked.connect(bak)
     window.leftButton.clicked.connect(left)
     window.rightButton.clicked.connect(right)

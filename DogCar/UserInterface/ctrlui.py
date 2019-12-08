@@ -22,9 +22,9 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.fowardButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.fowardButton.setObjectName("fowardButton")
-        self.verticalLayout.addWidget(self.fowardButton)
+        self.forwardButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.forwardButton.setObjectName("forwardButton")
+        self.verticalLayout.addWidget(self.forwardButton)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.leftButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
@@ -65,7 +65,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Car Controls"))
-        self.fowardButton.setText(_translate("MainWindow", "Foward"))
+        self.forwardButton.setText(_translate("MainWindow", "forward"))
         self.leftButton.setText(_translate("MainWindow", "Turn Left"))
         self.rightButton.setText(_translate("MainWindow", "Turn Right"))
         self.backwardButton.setText(_translate("MainWindow", "Backward"))
