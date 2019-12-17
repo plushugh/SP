@@ -30,7 +30,7 @@ def setup():
     en2.start(0)
 
 def changeSpeed(spdVal):
-    en1.change
+    en1.ChangeDutyCycle(spdVal)
 
 def fwd():
     GPIO.output(MOTOR1A,GPIO.HIGH)
@@ -57,6 +57,7 @@ def right():
     GPIO.output(MOTOR2B,GPIO.HIGH)
     print("Turn Right")
 def main():
+    setup()
     app = qtw.QApplication([])
     window = Form()
     window.forwardButton.clicked.connect(fwd)
@@ -66,10 +67,16 @@ def main():
     window.horizontalSlider.setTickPosition(qtw.QSlider.TicksBelow)
     def useSpeedValue():
         speedValue = window.horizontalSlider.value()
-        
+        useSpeedValue(speedValue)
         print(speedValue)
     window.horizontalSlider.valueChanged.connect(printSpeedValue)
     window.show()
     app.exec_()
+def clean():
+    GPIO.cleanup()
+    break
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        clean()
