@@ -67,9 +67,9 @@ def main():
     window.horizontalSlider.setTickPosition(qtw.QSlider.TicksBelow)
     def useSpeedValue():
         speedValue = window.horizontalSlider.value()
-        useSpeedValue(speedValue)
+        changeSpeed(speedValue)
         print(speedValue)
-    window.horizontalSlider.valueChanged.connect(printSpeedValue)
+    window.horizontalSlider.valueChanged.connect(useSpeedValue)
     window.show()
     app.exec_()
 def clean():
