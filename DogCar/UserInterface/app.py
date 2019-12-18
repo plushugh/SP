@@ -11,7 +11,7 @@ MOTOR2B = 22 #RIGHT
 class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        self.setupUi(self)
+        self.setupUi(self)-
 def setup():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(MOTOR1A,GPIO.OUT)
@@ -74,7 +74,6 @@ def main():
     app.exec_()
 def clean():
     GPIO.cleanup()
-    break
 if __name__ == "__main__":
     try:
         main()
