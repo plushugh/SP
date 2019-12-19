@@ -13,7 +13,7 @@ class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
         super(Form, self).__init__(parent)
         self.setupUi(self)
 def setup():
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(MOTOR1A,GPIO.OUT)
     GPIO.setup(MOTOR1B,GPIO.OUT)
     GPIO.setup(MOTOR2A,GPIO.OUT)
