@@ -75,11 +75,13 @@ def main():
 def clean():
     GPIO.cleanup()
 if __name__ == "__main__":
-    GPIO.cleanup()
     setup()
     try:
         main()
     except KeyboardInterrupt:
         clean()
+        raise
+    except:
+        exit()
     finally:
         GPIO.cleanup()
