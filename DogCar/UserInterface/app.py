@@ -26,8 +26,8 @@ def setup():
     GPIO.output(MOTOR2B,GPIO.LOW)
     en1=GPIO.PWM(ENA,1000)
     en2=GPIO.PWM(ENB,1000)
-    en1.start(0)
-    en2.start(0)
+    en1.start(25)
+    en2.start(25)
 
 def changeSpeed(spdVal):
     en1.ChangeDutyCycle(spdVal)
