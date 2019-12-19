@@ -2,16 +2,16 @@ import ctrlui
 import RPi.GPIO as GPIO
 import time
 from PyQt5 import QtWidgets as qtw
-ENA = 12
-ENB = 33
-MOTOR1A = 15 #LEFT
-MOTOR1B = 16 #LEFT
-MOTOR2A = 18 #RIGHT
-MOTOR2B = 22 #RIGHT
+ENA = 18
+ENB = 13
+MOTOR1A = 22 #LEFT
+MOTOR1B = 23 #LEFT
+MOTOR2A = 24 #RIGHT
+MOTOR2B = 25 #RIGHT
 class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        self.setupUi(self)-
+        self.setupUi(self)
 def setup():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(MOTOR1A,GPIO.OUT)
