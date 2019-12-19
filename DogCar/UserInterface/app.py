@@ -75,6 +75,7 @@ def main():
 def clean():
     GPIO.cleanup()
 if __name__ == "__main__":
+    setup()
     try:
         main()
     except KeyboardInterrupt:
