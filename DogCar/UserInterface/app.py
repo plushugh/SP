@@ -4,10 +4,10 @@ import time
 from PyQt5 import QtWidgets as qtw
 ENA = 18
 ENB = 13
-MOTOR1A = 22 #LEFT
-MOTOR1B = 23 #LEFT
-MOTOR2A = 24 #RIGHT
-MOTOR2B = 25 #RIGHT
+MOTOR1A = 23 #LEFT
+MOTOR1B = 22 #LEFT
+MOTOR2A = 25 #RIGHT
+MOTOR2B = 24 #RIGHT
 
 class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
     def __init__(self, parent=None):
