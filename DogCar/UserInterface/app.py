@@ -8,6 +8,10 @@ MOTOR1A = 22 #LEFT
 MOTOR1B = 23 #LEFT
 MOTOR2A = 24 #RIGHT
 MOTOR2B = 25 #RIGHT
+en1=GPIO.PWM(ENA,1000)
+en2=GPIO.PWM(ENB,1000)
+en1.start(25)
+en2.start(25)
 class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
@@ -24,10 +28,7 @@ def setup():
     GPIO.output(MOTOR1B,GPIO.LOW)
     GPIO.output(MOTOR2A,GPIO.LOW)
     GPIO.output(MOTOR2B,GPIO.LOW)
-    en1=GPIO.PWM(ENA,1000)
-    en2=GPIO.PWM(ENB,1000)
-    en1.start(25)
-    en2.start(25)
+
 
 def changeSpeed(spdVal):
     en1.ChangeDutyCycle(spdVal)
