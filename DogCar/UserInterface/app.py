@@ -8,6 +8,7 @@ MOTOR1A = 23 #LEFT
 MOTOR1B = 22 #LEFT
 MOTOR2A = 25 #RIGHT
 MOTOR2B = 24 #RIGHT
+SHOOTER = 17
 
 class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
     def __init__(self, parent=None):
@@ -19,12 +20,22 @@ def setup():
     GPIO.setup(MOTOR1B,GPIO.OUT)
     GPIO.setup(MOTOR2A,GPIO.OUT)
     GPIO.setup(MOTOR2B,GPIO.OUT)
+    GPIO.setup(SHOOTER,GPIO.OUT)
     GPIO.setup(ENA,GPIO.OUT)
     GPIO.setup(ENB,GPIO.OUT)
+    GPIO.output(SHOOTER,GPIO.LOW)
     GPIO.output(MOTOR1A,GPIO.LOW)
     GPIO.output(MOTOR1B,GPIO.LOW)
     GPIO.output(MOTOR2A,GPIO.LOW)
     GPIO.output(MOTOR2B,GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(SHOOTER,GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(SHOOTER,GPIO.LOW)
+    time.sleep(0.5)
+    GPIO.output(SHOOTER,GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(SHOOTER,GPIO.LOW)
 
 
 def changeSpeed(spdVal):
