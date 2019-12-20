@@ -29,6 +29,7 @@ def setup():
 
 def changeSpeed(spdVal):
     en1.ChangeDutyCycle(spdVal)
+    en2.ChangeDutyCycle(spdVal)
 
 def fwd():
     GPIO.output(MOTOR1A,GPIO.HIGH)
