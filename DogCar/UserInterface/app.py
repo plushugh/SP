@@ -8,10 +8,7 @@ MOTOR1A = 22 #LEFT
 MOTOR1B = 23 #LEFT
 MOTOR2A = 24 #RIGHT
 MOTOR2B = 25 #RIGHT
-en1=GPIO.PWM(ENA,1000)
-en2=GPIO.PWM(ENB,1000)
-en1.start(25)
-en2.start(25)
+
 class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
@@ -77,6 +74,10 @@ def clean():
     GPIO.cleanup()
 if __name__ == "__main__":
     setup()
+    en1=GPIO.PWM(ENA,1000)
+    en2=GPIO.PWM(ENB,1000)
+    en1.start(25)
+    en2.start(25)
     try:
         main()
     except KeyboardInterrupt:
