@@ -39,7 +39,7 @@ def setup():
 
 
 def changeSpeed(spdVal):
-    en1.ChangeDutyCycle(spdVal)
+    en1.ChangeDutyCycle(spdVal - 10)
     en2.ChangeDutyCycle(spdVal)
 
 def fwd():
