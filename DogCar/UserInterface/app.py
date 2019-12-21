@@ -84,7 +84,7 @@ def main():
         changeSpeed(speedValue)
         print(speedValue)
     window.horizontalSlider.valueChanged.connect(useSpeedValue)
-    window.closeEvent.connect(clean)
+    app.aboutToQuit.connect(clean)
     window.show()
     app.exec_()
 def clean():
