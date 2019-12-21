@@ -36,7 +36,10 @@ def shoot():
     GPIO.output(SHOOTER,GPIO.LOW)
 
 def changeSpeed(spdVal):
-    en1.ChangeDutyCycle(spdVal - 10)
+    if spdVal < 8:
+        en1.ChangeDutyCycle(spdVal)
+    else:
+        en1.ChangeDutyCycle(spdVal - 8)
     en2.ChangeDutyCycle(spdVal)
 
 def fwd():
