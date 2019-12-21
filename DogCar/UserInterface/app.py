@@ -1,4 +1,4 @@
-import ctrlui
+import ui
 import RPi.GPIO as GPIO
 import time
 from PyQt5 import QtWidgets as qtw
@@ -10,7 +10,7 @@ MOTOR2A = 25 #RIGHT
 MOTOR2B = 24 #RIGHT
 SHOOTER = 17
 
-class Form(qtw.QMainWindow, ctrlui.Ui_MainWindow):
+class Form(qtw.QMainWindow, ui.Ui_MainWindow):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
         self.setupUi(self)
@@ -28,15 +28,12 @@ def setup():
     GPIO.output(MOTOR1B,GPIO.LOW)
     GPIO.output(MOTOR2A,GPIO.LOW)
     GPIO.output(MOTOR2B,GPIO.LOW)
-    time.sleep(0.5)
-    GPIO.output(SHOOTER,GPIO.HIGH)
-    time.sleep(0.5)
-    GPIO.output(SHOOTER,GPIO.LOW)
-    time.sleep(0.5)
-    GPIO.output(SHOOTER,GPIO.HIGH)
-    time.sleep(0.5)
     GPIO.output(SHOOTER,GPIO.LOW)
 
+def shoot():
+    GPIO.output(SHOOTER, GPIO.HIGH)
+    time.sleep(1.5)
+    GPIO.output(SHOOTER,GPIO.LOW)
 
 def changeSpeed(spdVal):
     en1.ChangeDutyCycle(spdVal - 10)
@@ -66,6 +63,11 @@ def right():
     GPIO.output(MOTOR2A,GPIO.LOW)
     GPIO.output(MOTOR2B,GPIO.HIGH)
     print("Turn Right")
+def stop():
+    GPIO.output(MOTOR1A,GPIO.LOW)
+    GPIO.output(MOTOR1B,GPIO.LOW)
+    GPIO.output(MOTOR2A,GPIO.LOW)
+    GPIO.output(MOTOR2B,GPIO.LOW)
 def main():
     setup()
     app = qtw.QApplication([])
@@ -75,11 +77,14 @@ def main():
     window.leftButton.clicked.connect(left)
     window.rightButton.clicked.connect(right)
     window.horizontalSlider.setTickPosition(qtw.QSlider.TicksBelow)
+    window.stopButton.clicked.connect(stop)
+    window.shootButton.clicked.connect(shoot)
     def useSpeedValue():
         speedValue = window.horizontalSlider.value()
         changeSpeed(speedValue)
         print(speedValue)
     window.horizontalSlider.valueChanged.connect(useSpeedValue)
+    window.closeEvent.connect(clean)
     window.show()
     app.exec_()
 def clean():
@@ -88,14 +93,6 @@ if __name__ == "__main__":
     setup()
     en1=GPIO.PWM(ENA,1000)
     en2=GPIO.PWM(ENB,1000)
-    en1.start(25)
-    en2.start(25)
-    try:
-        main()
-    except KeyboardInterrupt:
-        clean()
-        raise
-    except:
-        exit()
-    finally:
-        GPIO.cleanup()
+    en1.start(0)
+    en2.start(0)
+    main()
