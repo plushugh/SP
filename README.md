@@ -1,3 +1,5 @@
+# **INFO: This repo is now archived, it contains science fair projects done before 2020**
+
 # SP
 Science Projects
 
